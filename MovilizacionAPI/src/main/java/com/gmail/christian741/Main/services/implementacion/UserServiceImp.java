@@ -32,7 +32,7 @@ public class UserServiceImp implements IUserService{
 
 	@Override
 	public void updateUser(User user) {
-		if (user.getId()==null) {
+		if(user.getId()==0) {
 			new ParamRequiredException("id not send");
 		}
 		User userEdit = this.getUserById(user.getId());
