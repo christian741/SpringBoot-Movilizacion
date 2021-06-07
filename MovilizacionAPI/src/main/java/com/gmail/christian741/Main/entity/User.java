@@ -17,8 +17,8 @@ public class User {
 		super();
 	}
 
-	public User(Integer id, String email, LocalDate emailVerified, String password, String cellphone,
-			LocalDate createdDate, LocalDate lastModify, String session) {
+	public User(Integer id, String email, Boolean emailVerified, String password, String cellphone,
+			LocalDate createdDate, LocalDate lastModify, String session, short permission) {
 		super();
 		this.id = id;
 		this.email = email;
@@ -27,7 +27,8 @@ public class User {
 		this.cellphone = cellphone;
 		this.createdDate = createdDate;
 		this.lastModify = lastModify;
-		Session = session;
+		this.Session = session;
+		this.permission = permission;
 	}
 
 	@Id
@@ -38,7 +39,7 @@ public class User {
 	private String email;
 	
 	@Column(name = "email_verified", length = 50 , nullable = false)
-	private LocalDate emailVerified;
+	private Boolean emailVerified;
 	
 	@Column(name = "password" , length = 20 , nullable = false)
 	private String password;
@@ -54,6 +55,9 @@ public class User {
 	
 	@Column(name = "session")
 	private String Session;
+	
+	@Column(name = "permission")
+	private short permission;
 
 	public Integer getId() {
 		return id;
@@ -71,11 +75,11 @@ public class User {
 		this.email = email;
 	}
 
-	public LocalDate getEmailVerified() {
+	public Boolean getEmailVerified() {
 		return emailVerified;
 	}
 
-	public void setEmailVerified(LocalDate emailVerified) {
+	public void setEmailVerified(Boolean emailVerified) {
 		this.emailVerified = emailVerified;
 	}
 
@@ -117,6 +121,14 @@ public class User {
 
 	public void setSession(String session) {
 		Session = session;
+	}
+
+	public short getPermission() {
+		return permission;
+	}
+
+	public void setPermission(short permission) {
+		this.permission = permission;
 	}
 	
 	
