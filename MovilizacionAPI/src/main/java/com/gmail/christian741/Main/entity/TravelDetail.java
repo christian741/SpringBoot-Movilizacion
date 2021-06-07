@@ -5,8 +5,7 @@ import java.time.LocalDate;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-@Entity
-@Table(name = "travel_detail")
+
 public class TravelDetail {
 
 	private Integer id;
